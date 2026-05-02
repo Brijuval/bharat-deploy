@@ -1,0 +1,40 @@
+# BharatDeploy Cloud Configuration Example
+# Copy this to bharat.yaml and customize
+# cp config/bharat.yaml.example bharat.yaml
+
+# Groq LLM Settings
+groq:
+  model: llama3-8b-8192      # LLM model to use
+  temperature: 0.1            # Lower = more deterministic (recommended for CLI)
+  max_tokens: 1024            # Max tokens in response
+  max_retries: 3              # Number of retries on failure
+  retry_delay: 1.0            # Seconds between retries
+
+# AWS Configuration
+aws:
+  region: ap-south-1          # Default: Mumbai (recommended for India)
+  dry_run: false              # Set to true to preview commands without executing
+  timeout: 30                 # Command timeout in seconds
+
+# Language Settings
+language:
+  default: auto               # auto-detect or set: hi/ta/kn/en/hinglish
+  supported:
+    - hi                      # Hindi (Devanagari script)
+    - ta                      # Tamil
+    - kn                      # Kannada
+    - en                      # English
+    - hinglish                # Roman script Hindi
+
+# Safety Settings
+safety:
+  confirm_destructive: true   # Ask confirmation before delete/terminate
+  blocked_commands:           # Commands that are always blocked
+    - "ec2 terminate-instances"
+    - "s3 rb --force"
+    - "rds delete-db-instance"
+
+# Output Settings
+output:
+  format: json                # json or text
+  verbose: false              # Show debug output
