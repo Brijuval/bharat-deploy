@@ -1,0 +1,29 @@
+# BharatDeploy Configuration File
+# Copy this file to config/bharat.yaml (do NOT commit with real values)
+
+# ---------------------------------------------------------------
+# Groq LLM settings
+# ---------------------------------------------------------------
+groq_model: llama3-8b-8192
+# Available models:
+#   llama3-8b-8192      (fast, good for simple commands)
+#   llama3-70b-8192     (more accurate, slower)
+#   mixtral-8x7b-32768  (large context)
+
+# ---------------------------------------------------------------
+# AWS settings
+# ---------------------------------------------------------------
+aws_region: ap-south-1   # Mumbai (default for Indian developers)
+
+# ---------------------------------------------------------------
+# BharatDeploy behaviour
+# ---------------------------------------------------------------
+default_language: hi   # hi | en | hinglish
+log_level: INFO         # DEBUG | INFO | WARNING | ERROR
+dry_run: false          # Set to true to preview without executing
+
+# ---------------------------------------------------------------
+# Retry / resilience settings
+# ---------------------------------------------------------------
+max_retries: 3
+retry_delay: 1.0        # seconds (doubled each retry)
